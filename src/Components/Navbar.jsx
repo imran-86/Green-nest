@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import logo from '../assets/Green Nest (1).png'
+import { AuthContext } from '../Context/AuthContext/AuthContext';
 const Navbar = () => {
+  const {user} = use(AuthContext)
+  
+  
+  //  console.log(user.email);
+   
+  
     return (
         <div className="navbar bg-base-100 shadow-sm px-20 sticky top-0 z-10">
   <div className="navbar-start">
@@ -28,9 +35,15 @@ const Navbar = () => {
       <li><NavLink to="/profile">My Profile</NavLink></li>
     </ul>
   </div>
-  <div className="navbar-end flex gap-3">
-    <Link to="/login">Login</Link>
-    <Link to="/register">Register</Link>
+  <div className="navbar-end">
+    {
+      user?<p>{user.displayName} <Link to="/register">Register</Link></p>:
+      <div className='flex gap-4'>
+        <Link to="/login">Login</Link>
+         <Link to="/register">Register</Link>
+      </div>
+    }
+    
   </div>
 </div>
     );
