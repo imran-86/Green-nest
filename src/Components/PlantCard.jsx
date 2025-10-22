@@ -13,8 +13,8 @@ const PlantCard = ({plant}) => {
     
     return (
         <div>
-            <Link to='/'
-       className="cursor-pointer card bg-base-100 hover:scale-105 transition ease-in-out shadow-sm p-4">
+            <div
+       className="cursor-pointer card bg-base-100 hover:scale-102 transition ease-in-out shadow-sm p-4">
         <figure className="h-48 overflow-hidden">
           <img className="w-full object-cover" src={image} alt="App" />
         </figure>
@@ -25,13 +25,16 @@ const PlantCard = ({plant}) => {
             <div className="badge  bg-gray-50 text-green-400">
               <p>{price}</p>
             </div>
+            <div>
+              <Link><button className="btn btn-active btn-success">View Details</button></Link>
+            </div>
             <div className="badge  bg-amber-50 text-orange-600">
               <img src={star} alt="" />
               {rating}
             </div>
           </div>
         </div>
-      </Link>
+      </div>
         </div>
     );
 };
