@@ -2,13 +2,13 @@ import React from 'react';
 import usePlants from '../Hooks/usePlants';
 import PlantCard from '../Components/PlantCard';
 import Hero from '../Components/Hero';
-import { useLocation } from 'react-router';
+// import { useLocation } from 'react-router';
 
 const Home = () => {
     const {plants} = usePlants()
     // console.log(plants);
-    const location = useLocation();
-    console.log(location);
+    // const location = useLocation();
+   
     
     return (
         <div>

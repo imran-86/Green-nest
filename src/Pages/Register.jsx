@@ -1,13 +1,14 @@
 
 import React, { use, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Await, Link, useNavigate } from "react-router";
+import { Await, Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext/AuthContext";
 import { updateProfile } from "firebase/auth";
-import { auth } from "../firebase/firebase.config";
+
 
 const Register = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const {createUser,setUser} = use(AuthContext);
   
   const [success, setSuccess] = useState(false);
@@ -46,16 +47,11 @@ const Register = () => {
             photoURL: photoUrl,
            
         });
-        
-         navigate('/', { 
-            state: { 
-                user: {
-                    displayName: name,
-                }
-            } 
-        });
-    
+        navigate(location.state || '/')
         event.target.reset();
+         
+    
+        
          
     }catch{(err) => {
         console.log(err);
