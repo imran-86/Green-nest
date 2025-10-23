@@ -46,10 +46,10 @@ const Navbar = () => {
       <li><NavLink to="/profile">My Profile</NavLink></li>
     </ul>
   </div>
-  <div className="navbar-end">
+  <div className="navbar-end ">
     {
       user?<details className="dropdown">
-  <summary className="btn m-1">{user.displayName}</summary>
+  <summary className=" list-none cursor-pointer"><figure className='mt-4 w-16 h-16'><img className='rounded-full' src={user.photoURL} alt="" /></figure></summary>
   <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li><a>{user.displayName}</a></li>
     <Link><li><a onClick={handleSignOut}>Sign Out</a></li></Link>
@@ -57,7 +57,7 @@ const Navbar = () => {
   </ul>
 </details>:
       <div className='flex gap-4'>
-        <Link to="/signin">Sign In</Link>
+        <Link to="/login">Sign In</Link>
          <Link to="/register">Sign Up</Link>
       </div>
     }

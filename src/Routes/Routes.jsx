@@ -5,7 +5,8 @@ import Plants from "../Pages/Plants";
 import Profiles from "../Pages/Profiles";
 
 import Register from "../Pages/Register";
-import SignIn from "../Pages/SignIn";
+import Login from "../Pages/Login";
+
 
 const router = createBrowserRouter([
     {
@@ -25,8 +26,8 @@ const router = createBrowserRouter([
                 Component:Profiles
             },
             {
-                path:"/signin",
-                Component: SignIn
+                path:"/login",
+                Component: Login
             },
             {
                 path:"/register",
