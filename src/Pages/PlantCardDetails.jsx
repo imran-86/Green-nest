@@ -7,9 +7,9 @@ import { FaCartArrowDown, FaDollarSign, FaStar } from 'react-icons/fa';
 const PlantCardDetails = () => {
     const {id} = useParams();
     const {plants} = usePlants();
-    console.log(plants);
+    // console.log(plants);
     const details = plants ? plants.find((plant) => String(plant.plantId) === id) : undefined;
-    console.log(details);
+    // console.log(details);
     if(!details){
         console.log("not find");
         return;

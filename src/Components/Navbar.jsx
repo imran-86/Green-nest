@@ -2,9 +2,9 @@ import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import logo from '../assets/Green Nest (1).png'
 import { AuthContext } from '../Context/AuthContext/AuthContext';
+import userPhoto from '../assets/image.png'
 const Navbar = () => {
   const {user,signOutUser} = use(AuthContext)
-  
   // console.log(user);
   const handleSignOut = () =>{
            signOutUser()
@@ -17,7 +17,7 @@ const Navbar = () => {
           })
   }
   
-  //  console.log(user.email);
+  //  console.log(user.photoURL);
    
   
     return (
@@ -49,7 +49,11 @@ const Navbar = () => {
   <div className="navbar-end ">
     {
       user?<details className="dropdown">
-  <summary className=" list-none cursor-pointer"><figure className='mt-4 w-16 h-16'><img className='rounded-full' src={user.photoURL} alt={user.displayName} /></figure></summary>
+  <summary className=" list-none cursor-pointer">
+    <figure className='mt-4 w-16 h-16'>
+      <img className='rounded-full' src={`${user? user.photoURL:userPhoto}`} alt=""
+        referrerPolicy='no-referrer'
+      /></figure></summary>
   <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li><a>{user.displayName}</a></li>
     <Link><li><a onClick={handleSignOut}>Sign Out</a></li></Link>

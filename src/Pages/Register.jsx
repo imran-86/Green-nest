@@ -4,23 +4,23 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Await, Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext/AuthContext";
 import { updateProfile } from "firebase/auth";
+import { auth } from "../firebase/firebase.config";
 
 
 const Register = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const {createUser,setUser} = use(AuthContext);
+  const {createUser,setUser, updateUser} = use(AuthContext);
   
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const handleRegister = async(event) => {
+  const handleRegister = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const pass = event.target.password.value;
     const name = event.target.name.value;
-    const photoUrl =event.target.photoUrl.value
-    console.log(photoUrl);
+    const photo =event.target.photoUrl.value
+    // console.log(photoUrl);
     
     
     const terms = event.target.terms.checked;
@@ -38,26 +38,47 @@ const Register = () => {
     }
     setError("");
     setSuccess(false);
-    try{
-         const result = await createUser(email, pass);
-          setSuccess(true);
-          setUser(result.user)
-         await updateProfile(result.user, {
-            displayName: name,
-            photoURL: photoUrl,
-           
-        });
-        navigate(location.state || '/')
-        event.target.reset();
-         
-    
+     createUser(email,pass)
+     .then((result)=>{
+      setSuccess(true);
+      const user = result.user;
+      updateUser({displayName : name,photoURL : photo}).then(()=>{
+         setUser({...user,displayName : name,photoURL : photo});
+         event.target.reset();
+         navigate('/')
+      }).catch((err)=>{
+        console.log(err);
+        setUser(user)
         
-         
-    }catch{(err) => {
+      })
+     
+     }).catch((err) => {
         console.log(err);
         setError(err.message);
       }
-};
+    );
+//     try{
+//          const result = await createUser(email, pass);
+//           setSuccess(true);
+          
+//          await updateProfile(result.user, {
+//             displayName: name,
+//             photoURL: photoUrl,
+           
+//         });
+        
+//         setUser(auth.currentUser)
+//         event.target.reset();
+//         // console.log(result.user);
+        
+//         navigate(`${location.state?location.state:'/'}`)
+      
+        
+//     }catch{(err) => {
+//         console.log(err);
+//         setError(err.message);
+//       }
+// };
   }
   const handleTogglePasswordShow = (event) => {
     event.preventDefault();
@@ -117,7 +138,7 @@ const Register = () => {
                   <label class="label">
                     <input type="checkbox" 
                     name="terms"
-                    class="checkbox" />
+                    className="checkbox" />
                     Accepts Our Terms and Conditions
                   </label>
                 </div>

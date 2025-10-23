@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { use } from 'react';
 import usePlants from '../Hooks/usePlants';
 import PlantCard from '../Components/PlantCard';
 import Hero from '../Components/Hero';
+import { AuthContext } from '../Context/AuthContext/AuthContext';
+import LoadingSpinner from './LoadingSpinner';
 // import { useLocation } from 'react-router';
 
 const Home = () => {
     const {plants} = usePlants()
+    // const {loading} = use(AuthContext)
+    // console.log(loading);
+    
+    // if(loading){
+    //     return <LoadingSpinner></LoadingSpinner>
+    // }
     // console.log(plants);
     // const location = useLocation();
    
