@@ -12,15 +12,42 @@ const UserFormDropdown = () => {
     const email = e.target.email.value;
     const name = e.target.name.value;
     const photoURL =e.target.photo.value;
-    console.log(email,name,photoURL);
-    updateUser({displayName : name,photoURL : photoURL,email:email}).then(()=>{
-         setUser({...user,displayName : name,photoURL : photoURL,email:email});
-         setIsOpen(false);
-      }).catch((err)=>{
-        console.log(err);
-        setUser(user)
+    // console.log(email,name,photoURL);
+    const newData = {};
+    if(email){
+        newData.email = email;
+    }
+    if(name){
+        newData.displayName = name;
+    }
+    if(photoURL){
+        newData.photoURL = photoURL;
+    }
+    // console.log(newData);
+    if (Object.keys(newData).length > 0) {
+        updateUser(newData).then(() => {
+            setUser(prevUser => ({
+                ...prevUser,
+                ...newData
+            }));
+            setIsOpen(false);
+        }).catch((err) => {
+            console.log('Update error:', err);
+           
+        });
+    } else {
+        console.log('No fields to update');
+        setIsOpen(false); 
+    }
     
-  })
+//     updateUser({displayName : name,photoURL : photoURL,email:email}).then(()=>{
+//          setUser({...user,displayName : name,photoURL : photoURL,email:email});
+//          setIsOpen(false);
+//       }).catch((err)=>{
+//         console.log(err);
+//         setUser(user)
+    
+//   })
 };
 
   return (
