@@ -14,6 +14,7 @@ const Login = () => {
   const [error,setError] = useState();
   const location = useLocation()
   const navigate = useNavigate();
+  console.log(location);
   
   
   const emailRef = useRef();
@@ -28,7 +29,7 @@ const Login = () => {
       .then((result) => {
         e.target.reset();
         // console.log(result.user);
-        navigate(location.state || '/')
+        navigate(`${location.state?location.state:'/'}`)
       })
       .catch((err) => {
          err.message = "Invalid email/password";
