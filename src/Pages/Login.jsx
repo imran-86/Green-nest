@@ -1,6 +1,6 @@
 import { sendPasswordResetEmail} from "firebase/auth";
 
-import React, { use, useRef } from "react";
+import React, { use, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { auth } from "../firebase/firebase.config";
 import { AuthContext } from "../Context/AuthContext/AuthContext";
@@ -11,6 +11,7 @@ const Login = () => {
   const {signInUser } = use(AuthContext)
   // console.log(signInUser);
   // console.log(user);
+  const [error,setError] = useState();
   const location = useLocation()
   const navigate = useNavigate();
   
@@ -29,8 +30,10 @@ const Login = () => {
         // console.log(result.user);
         navigate(location.state || '/')
       })
-      .catch(() => {
-        alert('Wrong Email or Password')
+      .catch((err) => {
+         err.message = "Invalid email/password";
+        
+        setError(err.message)
       });
   };
   const handleForgetPass = () => {
@@ -74,6 +77,7 @@ const Login = () => {
                 <button className="btn btn-neutral mt-4">Login</button>
               </fieldset>
             </form>
+            {error?<p className="text-red-700">{error}</p>:''}
             <p>
               New to our Website?Please
               <Link className="text-blue-500 underline ml-2" to="/register">
