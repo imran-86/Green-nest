@@ -4,6 +4,7 @@ import PlantCard from '../Components/PlantCard';
 import Hero from '../Components/Hero';
 import { AuthContext } from '../Context/AuthContext/AuthContext';
 import LoadingSpinner from './LoadingSpinner';
+import Experts from '../Components/Experts';
 // import { useLocation } from 'react-router';
 
 const Home = () => {
@@ -34,7 +35,8 @@ const Home = () => {
         </div>
 
         <div>
-            <h1 className='font-semibold text-center text-5xl my-10'>Meet Our Green Expert</h1>
+           
+            <Experts></Experts>
         </div>
        </div>
     );

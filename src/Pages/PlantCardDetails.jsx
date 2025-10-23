@@ -27,6 +27,7 @@ const PlantCardDetails = () => {
     }=details;
     
     const handleConsultation = (e) =>{
+        e.preventDefault()
         toast.success("Successfully Booked ",plantName)
         e.target.reset()
     }

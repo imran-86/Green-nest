@@ -4,18 +4,30 @@ import React, { use, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { auth } from "../firebase/firebase.config";
 import { AuthContext } from "../Context/AuthContext/AuthContext";
+import { FaGoogle } from "react-icons/fa";
 
 
 
 const Login = () => {
-  const {signInUser } = use(AuthContext)
+  const {signInUser,signInWithGoogle } = use(AuthContext)
   // console.log(signInUser);
   // console.log(user);
   const [error,setError] = useState();
   const location = useLocation()
   const navigate = useNavigate();
-//   console.log(location);
-  
+  console.log(location);
+   const handleGoogleSignIn = ()=>{
+      signInWithGoogle()
+      .then((result)=>{
+        navigate(`${location.state?location.state:'/'}`)
+        console.log(result);
+        
+      })
+      .catch((error)=>{
+        console.log(error);
+        
+      })
+  }
   
   const emailRef = useRef();
   const handleLogIn = (e) => {
@@ -78,6 +90,7 @@ const Login = () => {
                   <a className="link link-hover">Forgot password?</a>
                 </div>
                 <button className="btn btn-neutral mt-4">Login</button>
+                <button className="btn  mt-4" onClick={handleGoogleSignIn}><FaGoogle></FaGoogle> Sign in with Google</button>
               </fieldset>
             </form>
             {error?<p className="text-red-700">{error}</p>:''}

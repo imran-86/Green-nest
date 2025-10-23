@@ -1,7 +1,7 @@
 
 import React, { use, useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Await, Link, useLocation, useNavigate } from "react-router";
+import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+import { Await, Link, Navigate, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext/AuthContext";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
@@ -10,11 +10,23 @@ import { toast } from "react-toastify";
 
 const Register = () => {
   const navigate = useNavigate();
-  const {createUser,setUser, updateUser} = use(AuthContext);
+  const {createUser,setUser, updateUser, signInWithGoogle} = use(AuthContext);
   
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const handleGoogleSignIn = ()=>{
+      signInWithGoogle()
+      .then((result)=>{
+        navigate('/')
+        console.log(result);
+        
+      })
+      .catch((error)=>{
+        console.log(error);
+        
+      })
+  }
   const handleRegister = (event) => {
     event.preventDefault();
     
@@ -129,6 +141,7 @@ const Register = () => {
                   <a className="link link-hover">Forgot password?</a>
                 </div>
                 <button className="btn btn-neutral mt-4">Register</button>
+                <button className="btn  mt-4" onClick={handleGoogleSignIn}><FaGoogle></FaGoogle> Sign up with Google</button>
               </fieldset>
               {error ? <p className="text-red-800">{error}</p> : ""}
               {success && (

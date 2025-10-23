@@ -11,14 +11,12 @@ const UserFormDropdown = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     toast.success("Successfully Updated Your Profile")
-    const email = e.target.email.value;
+    
     const name = e.target.name.value;
     const photoURL =e.target.photo.value;
     // console.log(email,name,photoURL);
     const newData = {};
-    if(email){
-        newData.email = email;
-    }
+   
     if(name){
         newData.displayName = name;
     }
@@ -83,19 +81,7 @@ const UserFormDropdown = () => {
               />
             </div>
 
-            {/* Email Field */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Email Address *
-              </label>
-              <input
-                type="email"
-                name="email"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                placeholder="Enter email address"
-                
-              />
-            </div>
+       
 
             {/* Photo URL Field */}
             <div>
