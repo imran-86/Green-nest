@@ -57,28 +57,7 @@ const Register = () => {
         setError(err.message);
       }
     );
-//     try{
-//          const result = await createUser(email, pass);
-//           setSuccess(true);
-          
-//          await updateProfile(result.user, {
-//             displayName: name,
-//             photoURL: photoUrl,
-           
-//         });
-        
-//         setUser(auth.currentUser)
-//         event.target.reset();
-//         // console.log(result.user);
-        
-//         navigate(`${location.state?location.state:'/'}`)
-      
-        
-//     }catch{(err) => {
-//         console.log(err);
-//         setError(err.message);
-//       }
-// };
+
   }
   const handleTogglePasswordShow = (event) => {
     event.preventDefault();
