@@ -40,14 +40,7 @@ const UserFormDropdown = () => {
         setIsOpen(false); 
     }
     
-//     updateUser({displayName : name,photoURL : photoURL,email:email}).then(()=>{
-//          setUser({...user,displayName : name,photoURL : photoURL,email:email});
-//          setIsOpen(false);
-//       }).catch((err)=>{
-//         console.log(err);
-//         setUser(user)
-    
-//   })
+
 };
 
   return (
@@ -55,7 +48,7 @@ const UserFormDropdown = () => {
       
       <button
         onClick={toggleDropdown}
-        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-lg shadow-md transition-all duration-300 flex items-center justify-between"
+        className="w-full cursor-pointer bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-lg shadow-md transition-all duration-300 flex items-center justify-between"
       >
         <span>Update Your Profile ? Click Here . . .</span>
         <svg 
@@ -66,6 +59,7 @@ const UserFormDropdown = () => {
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
+    
       </button>
 
       

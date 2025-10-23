@@ -35,7 +35,7 @@ const Navbar = () => {
       <li><NavLink to="/profile">My Profile</NavLink></li>
       </ul>
     </div>
-    <figure className='w-20 h-10 rounded-2xl'><img src={logo} alt="" />
+    <figure className='w-20  rounded-2xl'><img src={logo} alt="" />
      
     </figure>
   </div>

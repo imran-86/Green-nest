@@ -1,9 +1,9 @@
 import React from 'react';
 import star from '../assets/fi_1828884.png'
-import { Link, useLocation } from 'react-router';
-const PlantCard = ({plant}) => {
-  const location = useLocation();
-  console.log(location);
+import { Link } from 'react-router';
+
+const PlantCard2 = ({plant}) => {
+
   
       const { 
         plantId,
@@ -29,7 +29,7 @@ const PlantCard = ({plant}) => {
               <p>{price}</p>
             </div>
             <div>
-              <Link to={`/${plantId}`}><button className="btn btn-active btn-success">View Details</button></Link>
+              <Link to={`/plant/${plantId}`}><button className="btn btn-active btn-success">View Details</button></Link>
             </div>
             <div className="badge  bg-amber-50 text-orange-600">
               <img src={star} alt="" />
@@ -42,4 +42,4 @@ const PlantCard = ({plant}) => {
     );
 };
 
-export default PlantCard;
+export default PlantCard2;

@@ -25,7 +25,9 @@ const PlantCardDetails = () => {
 
     }=details;
     
-
+    const handleConsultation = (e) =>{
+        e.target.reset()
+    }
     
     return (
         <div className="max-w-11/12 mx-auto w-full pt-4 md:pt-8 lg:pt-16 px-4 sm:px-6">
@@ -72,6 +74,44 @@ const PlantCardDetails = () => {
         <br />
         <p className="text-gray-500 leading-loose">{description}</p>
       </div>
+      <br />
+
+      <div>
+        <h1 className='text-2xl font-bold text-center mt-32'>Book Consultation</h1>
+        <div className="hero">
+      <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className=""></div>
+        <div className="card text-center  w-3xl  shadow-2xl">
+          <div className="card-body">
+            <form onSubmit={handleConsultation} className='text-center flex justify-center'>
+              <fieldset className="fieldset text-center">
+                <h1 className="text-3xl font-bold"></h1>
+                <label className="label">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  className="input w-2xl"
+                  placeholder="Email"
+                  required
+                />
+                <label className="label">Password</label>
+                <input
+                  name="password"
+                  type="password"
+                  className="input w-2xl"
+                  placeholder="Password"
+                  required
+                />
+                <button className="btn bg-green-700 text-white mt-4">Book Now</button>
+              </fieldset>
+            </form>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+      <br /><br />
     </div>
     );
 };

@@ -64,6 +64,7 @@ const Login = () => {
                   ref={emailRef}
                   className="input"
                   placeholder="Email"
+                  required
                 />
                 <label className="label">Password</label>
                 <input
@@ -71,6 +72,7 @@ const Login = () => {
                   type="password"
                   className="input"
                   placeholder="Password"
+                  required
                 />
                 <div onClick={handleForgetPass}>
                   <a className="link link-hover">Forgot password?</a>

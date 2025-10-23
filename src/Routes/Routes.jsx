@@ -19,10 +19,7 @@ const router = createBrowserRouter([
                 index:true,
                 Component:Home
             },
-            {
-               path:'/plants',
-               Component:Plants
-            },
+            
             {
                 path:'/profile',
                 Component:Profiles
@@ -35,9 +32,18 @@ const router = createBrowserRouter([
                 path:"/register",
                 Component:Register
             },
+            
+            {
+                path:"/:id",
+                element:<PrivateRoute><PlantCardDetails></PlantCardDetails></PrivateRoute>
+            },
+            {
+               path:'/plants',
+               Component:Plants
+            },
             {
                 path:"/plant/:id",
-                element:<PrivateRoute><PlantCardDetails></PlantCardDetails></PrivateRoute>
+                element: <PrivateRoute><PlantCardDetails></PlantCardDetails></PrivateRoute>
             }
            
         ]
