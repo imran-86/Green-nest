@@ -3,7 +3,7 @@ import star from '../assets/fi_1828884.png'
 import { Link } from 'react-router';
 const PlantCard = ({plant}) => {
       const { 
-        
+        plantId,
         plantName, 
         price, 
         rating, 
@@ -26,7 +26,7 @@ const PlantCard = ({plant}) => {
               <p>{price}</p>
             </div>
             <div>
-              <Link><button className="btn btn-active btn-success">View Details</button></Link>
+              <Link to={`plant/${plantId}`}><button className="btn btn-active btn-success">View Details</button></Link>
             </div>
             <div className="badge  bg-amber-50 text-orange-600">
               <img src={star} alt="" />

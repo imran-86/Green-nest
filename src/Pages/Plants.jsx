@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Plants = () => {
     return (
         <div>
-            <h2>Plants</h2>
+            <Link to="/login">Login</Link>
         </div>
     );
 };

@@ -6,6 +6,8 @@ import Profiles from "../Pages/Profiles";
 
 import Register from "../Pages/Register";
 import Login from "../Pages/Login";
+import PlantCardDetails from "../Pages/PlantCardDetails";
+import PrivateRoute from "../Pages/PrivateRoute/PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -32,6 +34,10 @@ const router = createBrowserRouter([
             {
                 path:"/register",
                 Component:Register
+            },
+            {
+                path:"/plant/:id",
+                element:<PrivateRoute><PlantCardDetails></PlantCardDetails></PrivateRoute>
             }
            
         ]
