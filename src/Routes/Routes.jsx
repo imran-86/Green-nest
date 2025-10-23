@@ -3,8 +3,9 @@ import RootLayouts from "../Layouts/RootLayouts";
 import Home from "../Pages/Home";
 import Plants from "../Pages/Plants";
 import Profiles from "../Pages/Profiles";
-import Login from "../Pages/Login";
+
 import Register from "../Pages/Register";
+import SignIn from "../Pages/SignIn";
 
 const router = createBrowserRouter([
     {
@@ -24,8 +25,8 @@ const router = createBrowserRouter([
                 Component:Profiles
             },
             {
-                path:"/login",
-                Component: Login
+                path:"/signin",
+                Component: SignIn
             },
             {
                 path:"/register",

@@ -3,8 +3,19 @@ import { Link, NavLink } from 'react-router';
 import logo from '../assets/Green Nest (1).png'
 import { AuthContext } from '../Context/AuthContext/AuthContext';
 const Navbar = () => {
-  const {user} = use(AuthContext)
+  const {user,signOutUser} = use(AuthContext)
   
+  console.log(user);
+  const handleSignOut = () =>{
+           signOutUser()
+           .then(()=>{
+             
+           })
+          .catch(err =>{
+            console.log(err);
+            
+          })
+  }
   
   //  console.log(user.email);
    
@@ -37,10 +48,17 @@ const Navbar = () => {
   </div>
   <div className="navbar-end">
     {
-      user?<p>{user.displayName} <Link to="/register">Register</Link></p>:
+      user?<details className="dropdown">
+  <summary className="btn m-1">{user.displayName}</summary>
+  <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+    <li><a>{user.displayName}</a></li>
+    <Link><li><a onClick={handleSignOut}>Sign Out</a></li></Link>
+    
+  </ul>
+</details>:
       <div className='flex gap-4'>
-        <Link to="/login">Login</Link>
-         <Link to="/register">Register</Link>
+        <Link to="/signin">Sign In</Link>
+         <Link to="/register">Sign Up</Link>
       </div>
     }
     
