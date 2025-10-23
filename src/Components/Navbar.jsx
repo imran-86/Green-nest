@@ -1,6 +1,6 @@
 import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
-import logo from '../assets/Green Nest (1).png'
+import logo from '../assets/LogoGreenNest.png'
 import { AuthContext } from '../Context/AuthContext/AuthContext';
 import userPhoto from '../assets/image.png'
 const Navbar = () => {
@@ -35,7 +35,7 @@ const Navbar = () => {
       <li><NavLink to="/profile">My Profile</NavLink></li>
       </ul>
     </div>
-    <figure className='w-10 h-10 rounded-2xl'><img src={logo} alt="" />
+    <figure className='w-20 h-10 rounded-2xl'><img src={logo} alt="" />
      
     </figure>
   </div>
@@ -54,7 +54,7 @@ const Navbar = () => {
       <img className='rounded-full' src={`${user? user.photoURL:userPhoto}`} alt=""
         referrerPolicy='no-referrer'
       /></figure></summary>
-  <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+  <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-36 p-1 shadow-sm">
     <li><a>{user.displayName}</a></li>
     <Link><li><a onClick={handleSignOut}>Sign Out</a></li></Link>
     
