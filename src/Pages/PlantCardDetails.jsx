@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import usePlants from '../Hooks/usePlants';
 import star from '../assets/fi_1828884.png'
 import { FaCartArrowDown, FaDollarSign, FaStar } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 const PlantCardDetails = () => {
     const {id} = useParams();
@@ -26,6 +27,7 @@ const PlantCardDetails = () => {
     }=details;
     
     const handleConsultation = (e) =>{
+        toast.success("Successfully Booked ",plantName)
         e.target.reset()
     }
     

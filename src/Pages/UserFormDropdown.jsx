@@ -1,5 +1,6 @@
 import React, { use, useState } from 'react';
 import { AuthContext } from '../Context/AuthContext/AuthContext';
+import { toast } from 'react-toastify';
 
 const UserFormDropdown = () => {
   const {updateUser,setUser,user} = use(AuthContext);
@@ -9,6 +10,7 @@ const UserFormDropdown = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    toast.success("Successfully Updated Your Profile")
     const email = e.target.email.value;
     const name = e.target.name.value;
     const photoURL =e.target.photo.value;

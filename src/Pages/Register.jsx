@@ -5,6 +5,7 @@ import { Await, Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext/AuthContext";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
+import { toast } from "react-toastify";
 
 
 const Register = () => {
@@ -16,19 +17,21 @@ const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const handleRegister = (event) => {
     event.preventDefault();
+    
     const email = event.target.email.value;
     const pass = event.target.password.value;
     const name = event.target.name.value;
     const photo =event.target.photoUrl.value
+   
     // console.log(photoUrl);
     
     
     const terms = event.target.terms.checked;
     const passwordPattern =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])(?=.{6,})/;
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.{6,})/;
     if (!passwordPattern.test(pass)) {
       setError(
-        "Password must contain at least 6 characters, one uppercase,one lowercase and one special character "
+        "Password must contain at least one uppercase one lowercase and 6 characters needed "
       );
       return;
     }
@@ -40,6 +43,7 @@ const Register = () => {
     setSuccess(false);
      createUser(email,pass)
      .then((result)=>{
+      toast.success("Successfully SignUp")
       setSuccess(true);
       const user = result.user;
       updateUser({displayName : name,photoURL : photo}).then(()=>{
