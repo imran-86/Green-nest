@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+// import React, { use } from 'react';
 import usePlants from '../Hooks/usePlants';
 import PlantCard from '../Components/PlantCard';
 import Hero from '../Components/Hero';

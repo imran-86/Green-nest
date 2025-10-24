@@ -2,7 +2,7 @@
 
 import React, { use, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
-import { auth } from "../firebase/firebase.config";
+// import { auth } from "../firebase/firebase.config";
 import { AuthContext } from "../Context/AuthContext/AuthContext";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 
@@ -16,7 +16,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation()
   const navigate = useNavigate();
-  console.log(location);
+  // console.log(location);
    const handleGoogleSignIn = ()=>{
       signInWithGoogle()
       .then((result)=>{

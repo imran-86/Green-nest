@@ -3,7 +3,7 @@ import { AuthContext } from '../Context/AuthContext/AuthContext';
 import { toast } from 'react-toastify';
 
 const UserFormDropdown = () => {
-  const {updateUser,setUser,user} = use(AuthContext);
+  const {updateUser,setUser} = use(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => {
     setIsOpen(!isOpen);

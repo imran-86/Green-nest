@@ -1,10 +1,10 @@
 
 import React, { use, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
-import { Await, Link, Navigate, useLocation, useNavigate } from "react-router";
+import { Await, Link, Navigate,  useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext/AuthContext";
-import { updateProfile } from "firebase/auth";
-import { auth } from "../firebase/firebase.config";
+// import { updateProfile } from "firebase/auth";
+// import { auth } from "../firebase/firebase.config";
 import { toast } from "react-toastify";
 
 

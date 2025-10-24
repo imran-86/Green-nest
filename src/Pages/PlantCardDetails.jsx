@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import usePlants from '../Hooks/usePlants';
 import { FaCartArrowDown, FaDollarSign, FaStar } from 'react-icons/fa';
