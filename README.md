@@ -1,16 +1,26 @@
-# React + Vite
+GreenNest - Plant Care & Store Platform
+GreenNest is an elegant single-page web application built for plant lovers who want to nurture and decorate their homes with healthy indoor plants. The platform allows users to explore plant care guides, buy plants, and book expert consultations — ensuring a greener and healthier living space during any season.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Features
+User Authentication - Secure Firebase authentication with email/password and Google Sign-In
 
-Currently, two official plugins are available:
+Plant Catalog - Browse and explore various indoor plants with detailed care guides
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Expert Consultations - Book appointments with plant care specialists
 
-## React Compiler
+Responsive Design - Beautiful, minimalist UI that works on all devices
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Protected Routes - Secure access to user-specific content and profiles
 
-## Expanding the ESLint configuration
+🛠️ Built With
+React.js
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Tailwind CSS
+
+Firebase Authentication
+
+React Router
+
+Context API
+
+GreenNest successfully delivers a seamless experience for plant enthusiasts to discover, learn about, and maintain indoor plants while connecting with gardening experts.
