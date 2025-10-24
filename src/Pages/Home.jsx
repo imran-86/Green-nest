@@ -5,10 +5,12 @@ import Hero from '../Components/Hero';
 import { AuthContext } from '../Context/AuthContext/AuthContext';
 import LoadingSpinner from './LoadingSpinner';
 import Experts from '../Components/Experts';
+import { Link } from 'react-router';
 // import { useLocation } from 'react-router';
 
 const Home = () => {
     const {plants} = usePlants()
+    const firstFourPlants = plants?.slice(0, 4) || [];
     // const {loading} = use(AuthContext)
     // console.log(loading);
     
@@ -25,14 +27,18 @@ const Home = () => {
              <Hero></Hero>
             </div>
         <h1 className='font-semibold text-center text-5xl my-10'>Indoor Plants</h1><br />
-        <div className='w-11/12 mx-auto grid grid-cols-3 gap-5'>
+        <div className='w-9/12 mx-auto grid grid-cols-2 gap-5'>
 
             {
-                plants.map((plant)=><PlantCard key={plant.plantId} 
+                firstFourPlants.map((plant)=><PlantCard key={plant.plantId} 
                 plant={plant}
                 ></PlantCard>)
             }
+           
         </div>
+         <Link to="/plants" className='mt-10 bg-green-600 text-white font-bold rounded-4xl block text-center mx-auto p-3 border w-fit'>
+                See more . . .
+        </Link>
 
         <div>
            

@@ -8,6 +8,7 @@ import Register from "../Pages/Register";
 import Login from "../Pages/Login";
 import PlantCardDetails from "../Pages/PlantCardDetails";
 import PrivateRoute from "../Pages/PrivateRoute/PrivateRoute";
+import ForgotPassword from "../Components/ForgotPassword";
 
 
 const router = createBrowserRouter([
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
             {
                 path:"/plant/:id",
                 element: <PrivateRoute><PlantCardDetails></PlantCardDetails></PrivateRoute>
+            },
+            {
+                path:"/forgot-password",
+                Component:ForgotPassword,
             }
            
         ]

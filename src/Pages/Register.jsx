@@ -86,12 +86,12 @@ const Register = () => {
         
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <div className="text-center">
-          <h1 className="text-3xl font-bold">Register now!</h1>
+          <h1 className="text-3xl font-bold mt-5">Sign up now!</h1>
         </div>
           <div className="card-body">
             <form onSubmit={handleRegister}>
               <fieldset className="fieldset">
-                 <label className="label">Name</label>
+                 <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
                 <input
                   name="name"
                   type="text"
@@ -99,22 +99,22 @@ const Register = () => {
                   placeholder="Your Name"
                   required
                 />
-                <label className="label">Phot Url</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Phot Url</label>
                 <input
                   name="photoUrl"
                   type="text"
                   className="input"
-                  placeholder="Your Photo Url"
+                  placeholder="https://example.com/photo.jpg"
                   required
                 />
-                <label className="label">Email</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
                 <input
                   name="email"
                   type="email"
                   className="input"
                   placeholder="Email"
                 />
-                <label className="label">Password</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
                 <div className="relative">
                   <input
                     name="password"
@@ -130,17 +130,17 @@ const Register = () => {
                   </button>
                 </div>
                 <div>
-                  <label class="label">
+                  <label class="label mt-2">
                     <input type="checkbox" 
                     name="terms"
                     className="checkbox" />
                     Accepts Our Terms and Conditions
                   </label>
                 </div>
-                <div>
+                {/* <div>
                   <a className="link link-hover">Forgot password?</a>
-                </div>
-                <button className="btn btn-neutral mt-4">Register</button>
+                </div> */}
+                <button className="btn btn-neutral mt-4">Sign up</button>
                 <button className="btn  mt-4" onClick={handleGoogleSignIn}><FaGoogle></FaGoogle> Sign up with Google</button>
               </fieldset>
               {error ? <p className="text-red-800">{error}</p> : ""}
