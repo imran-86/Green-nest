@@ -5,10 +5,10 @@ import PlantCard2 from '../Components/PlantCard2';
 import LoadingSpinner from './LoadingSpinner';
 
 const Plants = () => {
-    const {plants,loading} = usePlants()
+    const {plants} = usePlants()
     // const indoorPlants = plants;
-    // const {loading} = usePlants()
-     if(loading){
+    const {loadingPlants} = usePlants()
+     if(loadingPlants){
         return <LoadingSpinner></LoadingSpinner>
      }
     return (

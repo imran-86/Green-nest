@@ -3,8 +3,8 @@ import star from '../assets/fi_1828884.png'
 import { Link, useLocation } from 'react-router';
 import { FaDollarSign } from 'react-icons/fa';
 const PlantCard = ({plant}) => {
-  const location = useLocation();
-  console.log(location);
+  // const location = useLocation();
+  // console.log(location);
   
       const { 
         plantId,

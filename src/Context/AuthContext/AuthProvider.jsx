@@ -26,7 +26,7 @@ const AuthProvider = ({children}) => {
          return signInWithEmailAndPassword(auth,email,password)
     }
      const signOutUser = () =>{
-     setLoading(true);
+    //  setLoading(true);
     return signOut(auth)
    }
     
@@ -36,6 +36,8 @@ const AuthProvider = ({children}) => {
           setLoading(false);
 
     })
+    // console.log(loading);
+    
 
     // Clear the observer on unmount
     return () =>{
@@ -57,9 +59,9 @@ const AuthProvider = ({children}) => {
     }
 
     return (
-        <AuthContext value={authInfo}>
+        <AuthContext.Provider value={authInfo}>
             {children}
-        </AuthContext>
+        </AuthContext.Provider>
     );
 };
 

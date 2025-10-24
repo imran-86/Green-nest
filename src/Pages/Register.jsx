@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 
 const Register = () => {
   const navigate = useNavigate();
-  const {createUser,setUser, updateUser, signInWithGoogle} = use(AuthContext);
+  const {createUser,setUser, updateUser, signInWithGoogle,setLoading} = use(AuthContext);
   
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
@@ -55,12 +55,14 @@ const Register = () => {
     setSuccess(false);
      createUser(email,pass)
      .then((result)=>{
-      toast.success("Successfully SignUp")
-      setSuccess(true);
+      
       const user = result.user;
       updateUser({displayName : name,photoURL : photo}).then(()=>{
          setUser({...user,displayName : name,photoURL : photo});
          event.target.reset();
+         toast.success("Successfully SignUp")
+      setLoading(false)
+      setSuccess(true);
          navigate('/')
       }).catch((err)=>{
         console.log(err);

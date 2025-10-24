@@ -2,10 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react"
 const usePlants = () =>{
     const [plants,setPlants] = useState([]);
-    const [loading,setLoading] = useState(true);
+    const [loadingPlants,setLoadingPlants] = useState(true);
     const [error,setError] = useState(null)
     useEffect(()=>{
-        setLoading(true);
+        setLoadingPlants(true);
         setError(null);
         axios('../plants.json')
         .then((data) =>{
@@ -15,9 +15,9 @@ const usePlants = () =>{
             setError(error)
         })
         .finally(()=>{
-            setLoading(false);
+            setLoadingPlants(false);
         })
     },[]);
-    return {plants,loading,error}
+    return {plants,loadingPlants,error}
 }
 export default usePlants;

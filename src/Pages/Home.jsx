@@ -10,12 +10,12 @@ import FeedbackList from '../Components/FeedbackList';
 // import { useLocation } from 'react-router';
 
 const Home = () => {
-    const {plants,loading} = usePlants()
+    const {plants,loadingPlants} = usePlants()
     const firstFourPlants = plants?.slice(0, 4) || [];
     // const {loading} = use(AuthContext)
     // console.log(loading);
     
-    if(loading){
+    if(loadingPlants){
         return <LoadingSpinner></LoadingSpinner>
     }
     // console.log(plants);
@@ -48,6 +48,7 @@ const Home = () => {
         <div>
             <FeedbackList></FeedbackList>
         </div>
+        <br /><br />
        </div>
     );
 };

@@ -1,18 +1,24 @@
-import React, { use } from 'react';
+import React, {useContext } from 'react';
 import { AuthContext } from '../../Context/AuthContext/AuthContext';
 import { Navigate, useLocation } from 'react-router';
 import LoadingSpinner from '../LoadingSpinner';
 import usePlants from '../../Hooks/usePlants';
 
 const PrivateRoute = ({children}) => {
-     const {user} = use(AuthContext)
-    //  console.log(user);
+     const {user,loading} = useContext(AuthContext)
+     console.log(user);
     const location = useLocation();
+
     // console.log(location);
-    const {loading} = usePlants()
+   //  const {loadingPlants} = usePlants()
+   console.log(loading);
+   
      if(loading){
         return <LoadingSpinner></LoadingSpinner>
      }
+   //   if(loadingPlants){
+   //    return <LoadingSpinner></LoadingSpinner>
+   //   }
      if(user){
         return children;
      }

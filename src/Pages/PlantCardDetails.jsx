@@ -3,6 +3,8 @@ import { useParams } from 'react-router';
 import usePlants from '../Hooks/usePlants';
 import { FaCartArrowDown, FaDollarSign, FaStar } from 'react-icons/fa';
 import { toast } from 'react-toastify';
+import LoadingSpinner from './LoadingSpinner';
+
 
 const PlantCardDetails = () => {
     const {id} = useParams();
@@ -10,10 +12,14 @@ const PlantCardDetails = () => {
     // console.log(plants);
     const details = plants ? plants.find((plant) => String(plant.plantId) === id) : undefined;
     // console.log(details);
+    
     if(!details){
         console.log("not find");
-        return;
+        return <LoadingSpinner></LoadingSpinner>
     }
+    // if(loading){
+    //   return <LoadingSpinner></LoadingSpinner>
+    // }
     const {
         plantName,
        price,
