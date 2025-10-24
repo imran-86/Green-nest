@@ -3,7 +3,17 @@ import React, { useState } from 'react';
 import ExpertCard from './ExpertCard';
 
 const Experts = () => {
-    
+    const [showAdvice, setShowAdvice] = useState(false);
+     const plantCareAdvice = [
+        "💧 Water plants when the top inch of soil is dry - overwatering is the #1 killer of houseplants!",
+        "☀️ Most indoor plants need bright, indirect light. Avoid direct sunlight which can scorch leaves.",
+        "🌱 Use well-draining soil and pots with drainage holes to prevent root rot.",
+        "🍃 Clean plant leaves regularly with a damp cloth to help them breathe and photosynthesize better.",
+        "🌿 Rotate your plants every few weeks to ensure even growth on all sides.",
+        "⚠️ Watch for yellow leaves (overwatering) and brown tips (underwatering/low humidity).",
+        "🌼 Fertilize during growing season (spring-summer) but reduce in fall and winter.",
+        "🐛 Check regularly for pests like spider mites and mealybugs, especially under leaves."
+    ]
     const experts = [
         {
             id: 1,
@@ -72,10 +82,36 @@ const Experts = () => {
                         <p className="text-gray-600 mb-6">
                             Our experts are here to help you with any plant care questions or issues you might have.
                         </p>
-                        <button className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
-                            Book a Consultation
-                        </button>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                 
+                    <button className="bg-green-500 cursor-pointer hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                       <span className='animate-pulse inline-block'> Book a Consultation</span>
+                    </button>
+                    
+                  
+                    <button 
+                        onClick={() => setShowAdvice(!showAdvice)}
+                        className="bg-blue-500 hover:bg-blue-600 cursor-pointer text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                    >
+                        {showAdvice ? 'Hide Plant Care Advice' : <span className='inline-block animate-bounce'>Let's see Our Plant Care Advice</span>}
+                    </button>
+                      </div>
                     </div>
+                    {showAdvice && (
+                    <div className="w-11/12 mx-auto mt-8 p-6 bg-green-50 rounded-xl border border-green-200">
+                        <h4 className="text-xl font-bold text-green-800 mb-4">
+                            🌿 Expert Plant Care Tips
+                        </h4>
+                        <div className="space-y-3 text-left">
+                            {plantCareAdvice.map((advice, index) => (
+                                <div key={index} className="flex items-start space-x-3">
+                                    <span className="text-green-500 mt-1">•</span>
+                                    <p className="text-green-700">{advice}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
                 </div>
             </div>
         </section>
