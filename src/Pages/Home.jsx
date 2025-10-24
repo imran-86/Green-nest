@@ -6,6 +6,7 @@ import { AuthContext } from '../Context/AuthContext/AuthContext';
 import LoadingSpinner from './LoadingSpinner';
 import Experts from '../Components/Experts';
 import { Link } from 'react-router';
+import FeedbackList from '../Components/FeedbackList';
 // import { useLocation } from 'react-router';
 
 const Home = () => {
@@ -43,6 +44,9 @@ const Home = () => {
         <div>
            
             <Experts></Experts>
+        </div>
+        <div>
+            <FeedbackList></FeedbackList>
         </div>
        </div>
     );
