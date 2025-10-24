@@ -1,9 +1,20 @@
 
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import ExpertCard from './ExpertCard';
+import { AuthContext } from '../Context/AuthContext/AuthContext';
+import { toast } from 'react-toastify';
 
 const Experts = () => {
+    const {user} = use(AuthContext);
+    // console.log(user);
+    
     const [showAdvice, setShowAdvice] = useState(false);
+    const [showConsultation, setShowConsultation] = useState(false);
+      const handleConsultation = (e) =>{
+            e.preventDefault()
+            toast.success("Successfully Booked ")
+            e.target.reset()
+        }
      const plantCareAdvice = [
         "💧 Water plants when the top inch of soil is dry - overwatering is the #1 killer of houseplants!",
         "☀️ Most indoor plants need bright, indirect light. Avoid direct sunlight which can scorch leaves.",
@@ -84,7 +95,9 @@ const Experts = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                  
-                    <button className="bg-green-500 cursor-pointer hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                    <button 
+                    onClick={()=>setShowConsultation(!showConsultation)}
+                    className="bg-green-500 cursor-pointer hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
                        <span className='animate-pulse inline-block'> Book a Consultation</span>
                     </button>
                     
@@ -97,21 +110,75 @@ const Experts = () => {
                     </button>
                       </div>
                     </div>
-                    {showAdvice && (
-                    <div className="w-11/12 mx-auto mt-8 p-6 bg-green-50 rounded-xl border border-green-200">
-                        <h4 className="text-xl font-bold text-green-800 mb-4">
-                            🌿 Expert Plant Care Tips
-                        </h4>
-                        <div className="space-y-3 text-left">
-                            {plantCareAdvice.map((advice, index) => (
-                                <div key={index} className="flex items-start space-x-3">
-                                    <span className="text-green-500 mt-1">•</span>
-                                    <p className="text-green-700">{advice}</p>
-                                </div>
-                            ))}
-                        </div>
+                 {showAdvice ? (
+    user ? (
+        <div className="w-11/12 mx-auto mt-8 p-6 bg-green-50 rounded-xl border border-green-200">
+            <h4 className="text-xl font-bold text-green-800 mb-4">
+                🌿 Expert Plant Care Tips
+            </h4>
+            <div className="space-y-3 text-left">
+                {plantCareAdvice.map((advice, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                        <span className="text-green-500 mt-1">•</span>
+                        <p className="text-green-700">{advice}</p>
                     </div>
-                )}
+                ))}
+            </div>
+        </div>
+    ) : (
+        <p className="text-red-600 mt-4">You have to Log in for seeing our Expert tips</p>
+    )
+) : null}
+
+                          {showConsultation ? (
+    user ? (
+        <div>
+        <h1 className='text-2xl font-bold text-center mt-32'>Book Consultation</h1>
+        <div className="hero">
+      <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className=""></div>
+        <div className="card text-center  w-3xl  shadow-2xl">
+          <div className="card-body">
+            <form onSubmit={handleConsultation} className='text-center flex justify-center'>
+              <fieldset className="fieldset text-center">
+                <h1 className="text-3xl font-bold"></h1>
+                <label className="label text-sm font-medium text-gray-700 mb-1">Your Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  className="input w-2xl"
+                  placeholder="Email"
+                  required
+                />
+              <label className="label text-sm font-medium text-gray-700 mb-1">Consultation Time</label>
+               <input
+                 name="consultationTime"
+                 type="datetime-local"
+                className="input input-bordered w-full max-w-2xl"
+                required
+                 />
+                <label className="label text-sm font-medium text-gray-700 mb-1">Description</label>
+        <textarea
+            name="description"
+            className="textarea textarea-bordered w-full w-2xl h-32"
+            placeholder="Describe your plant issue or what advice you need . . ."
+            required
+        ></textarea>
+                <button className="btn bg-green-700 text-white mt-4">Book Now</button>
+              </fieldset>
+            </form>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+    ) : (
+        <p className="text-red-600 mt-4">You have to Log in for Booking our Consultation</p>
+    )
+) : null}
+
+
                 </div>
             </div>
         </section>
