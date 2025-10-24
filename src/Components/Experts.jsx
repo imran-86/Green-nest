@@ -112,8 +112,8 @@ const Experts = () => {
                     </div>
                  {showAdvice ? (
     user ? (
-        <div className="w-11/12 mx-auto mt-8 p-6 bg-green-50 rounded-xl border border-green-200">
-            <h4 className="text-xl font-bold text-green-800 mb-4">
+        <div className=" w-11/12 mx-auto mt-8 p-6 bg-green-50 rounded-xl border border-green-200">
+            <h4 className="text-xl font-bold text-green-800 mb-4 ">
                 🌿 Expert Plant Care Tips
             </h4>
             <div className="space-y-3 text-left">
@@ -132,47 +132,67 @@ const Experts = () => {
 
                           {showConsultation ? (
     user ? (
-        <div>
-        <h1 className='text-2xl font-bold text-center mt-32'>Book Consultation</h1>
-        <div className="hero">
-      <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className=""></div>
-        <div className="card text-center  w-3xl  shadow-2xl">
-          <div className="card-body">
-            <form onSubmit={handleConsultation} className='text-center flex justify-center'>
-              <fieldset className="fieldset text-center">
-                <h1 className="text-3xl font-bold"></h1>
-                <label className="label text-sm font-medium text-gray-700 mb-1">Your Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  className="input w-2xl"
-                  placeholder="Email"
-                  required
-                />
-              <label className="label text-sm font-medium text-gray-700 mb-1">Consultation Time</label>
-               <input
-                 name="consultationTime"
-                 type="datetime-local"
-                className="input input-bordered w-full max-w-2xl"
-                required
-                 />
-                <label className="label text-sm font-medium text-gray-700 mb-1">Description</label>
-        <textarea
-            name="description"
-            className="textarea textarea-bordered w-full w-2xl h-32"
-            placeholder="Describe your plant issue or what advice you need . . ."
-            required
-        ></textarea>
-                <button className="btn bg-green-700 text-white mt-4">Book Now</button>
-              </fieldset>
-            </form>
-            
-          </div>
+        <div className="min-h-screen py-8">
+    <h1 className='text-2xl md:text-3xl font-bold text-center mt-16 md:mt-32 mb-8'>Book Consultation</h1>
+    <div className="hero">
+        <div className="hero-content flex-col lg:flex-row-reverse w-full max-w-6xl">
+            <div className="card w-full max-w-md lg:max-w-2xl shadow-2xl bg-base-100">
+                <div className="card-body p-4 sm:p-6 md:p-8">
+                    <form onSubmit={handleConsultation}>
+                        <fieldset className="fieldset space-y-4 w-full">
+                           
+                            <div className="form-control w-full">
+                                <label className="label text-sm font-medium text-gray-700 mb-1">
+                                    Your Email
+                                </label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    className="input input-bordered w-full"
+                                    placeholder="your@email.com"
+                                    required
+                                />
+                            </div>
+
+                            
+                            <div className="form-control w-full">
+                                <label className="label text-sm font-medium text-gray-700 mb-1">
+                                    Consultation Time
+                                </label>
+                                <input
+                                    name="consultationTime"
+                                    type="datetime-local"
+                                    className="input input-bordered w-full"
+                                    required
+                                />
+                            </div>
+
+                           
+                            <div className="form-control w-full">
+                                <label className="label text-sm font-medium text-gray-700 mb-1">
+                                    Description
+                                </label>
+                                <textarea
+                                    name="description"
+                                    className="textarea textarea-bordered w-full h-32 md:h-40"
+                                    placeholder="Describe your plant issue or what advice you need . . ."
+                                    required
+                                ></textarea>
+                            </div>
+
+                            
+                            <div className="form-control w-full mt-6">
+                                <button className="btn bg-green-700 hover:bg-green-800 text-white w-full">
+                                    Book Now
+                                </button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-      </div>
+</div>
     ) : (
         <p className="text-red-600 mt-4">You have to Log in for Booking our Consultation</p>
     )

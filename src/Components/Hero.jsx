@@ -36,7 +36,7 @@ const Hero = () => {
                 speed={500}
                 autoplay={{
                     delay: 2000,
-                    disableOnInteraction: true,
+                    disableOnInteraction: false,
                 }}
                 loop={true}
                 className="h-full w-full"

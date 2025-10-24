@@ -1,6 +1,7 @@
 import React from 'react';
 import star from '../assets/fi_1828884.png'
 import { Link } from 'react-router';
+import { FaDollarSign } from 'react-icons/fa';
 
 const PlantCard2 = ({plant}) => {
 
@@ -26,7 +27,7 @@ const PlantCard2 = ({plant}) => {
 
           <div className="card-actions flex mt-8 justify-between">
             <div className="badge  bg-gray-50 text-green-400">
-              <p>{price}</p>
+              <p className='flex gap-1 items-center'><FaDollarSign></FaDollarSign>{price}</p>
             </div>
             <div>
               <Link to={`/plant/${plantId}`}><button className="btn btn-active btn-success">View Details</button></Link>

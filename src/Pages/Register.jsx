@@ -43,7 +43,7 @@ const Register = () => {
       /^(?=.*[a-z])(?=.*[A-Z])(?=.{6,})/;
     if (!passwordPattern.test(pass)) {
       setError(
-        "Password must contain at least one uppercase one lowercase and 6 characters needed "
+        "Password must contain at least one uppercase,one lowercase and 6 characters needed "
       );
       return;
     }
@@ -70,7 +70,7 @@ const Register = () => {
      
      }).catch((err) => {
         console.log(err);
-        setError(err.message);
+        setError("Error: (auth/Email already in use).");
       }
     );
 
@@ -112,7 +112,7 @@ const Register = () => {
                   name="email"
                   type="email"
                   className="input"
-                  placeholder="Email"
+                  placeholder="example@gmail.com"
                 />
                 <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
                 <div className="relative">
@@ -148,7 +148,7 @@ const Register = () => {
                 <p className="text-green-950">Account Created Successfully</p>
               )}
             </form>
-            <p>Already have an account?Please<Link
+            <p>Already have an account? Please<Link
             className="text-blue-500 underline ml-2"
             to="/login">Login</Link></p>
           </div>

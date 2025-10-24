@@ -45,7 +45,7 @@ const Login = () => {
         navigate(`${location.state?location.state:'/'}`)
       })
       .catch((err) => {
-         err.message = "Invalid email/password";
+         err.message = "Invalid email or password";
         
         setError(err.message)
       });
@@ -70,7 +70,7 @@ const Login = () => {
                   name="email"
                   ref={emailRef}
                   className="input"
-                  placeholder="Email"
+                  placeholder="example@gmail.com"
                   required
                 />
                 <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
@@ -98,7 +98,7 @@ const Login = () => {
             </form>
             {error?<p className="text-red-700">{error}</p>:''}
             <p>
-              New to our Website?Please
+              New to our Website? Please
               <Link className="text-blue-500 underline ml-2" to="/register">
                 Register
               </Link>

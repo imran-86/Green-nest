@@ -30,6 +30,10 @@ const router = createBrowserRouter([
                 Component: Login
             },
             {
+                path:"/profile/login",
+                Component: Login
+            },
+            {
                 path:"/register",
                 Component:Register
             },

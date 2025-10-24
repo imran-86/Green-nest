@@ -101,7 +101,7 @@ const UserFormDropdown = () => {
             <div className="flex space-x-3 pt-2">
               <button
                 type="submit"
-                className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200"
+                className="flex-1 cursor-pointer bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200"
               >
                 Save Profile
               </button>

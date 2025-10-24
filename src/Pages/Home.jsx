@@ -9,14 +9,14 @@ import { Link } from 'react-router';
 // import { useLocation } from 'react-router';
 
 const Home = () => {
-    const {plants} = usePlants()
+    const {plants,loading} = usePlants()
     const firstFourPlants = plants?.slice(0, 4) || [];
     // const {loading} = use(AuthContext)
     // console.log(loading);
     
-    // if(loading){
-    //     return <LoadingSpinner></LoadingSpinner>
-    // }
+    if(loading){
+        return <LoadingSpinner></LoadingSpinner>
+    }
     // console.log(plants);
     // const location = useLocation();
    
@@ -27,7 +27,7 @@ const Home = () => {
              <Hero></Hero>
             </div>
         <h1 className='font-semibold text-center text-5xl my-10'>Indoor Plants</h1><br />
-        <div className='w-9/12 mx-auto grid grid-cols-2 gap-5'>
+        <div className='w-9/12 mx-auto grid grid-cols-1 md:grid-cols-2 gap-5'>
 
             {
                 firstFourPlants.map((plant)=><PlantCard key={plant.plantId} 

@@ -21,7 +21,7 @@ const Navbar = () => {
    
   
     return (
-        <div className="navbar bg-base-100 shadow-sm px-20 sticky top-0 z-10">
+        <div className="navbar bg-base-100 shadow-sm px-16 md:px-20 sticky top-0 z-10">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -29,13 +29,13 @@ const Navbar = () => {
       </div>
       <ul
         tabIndex="-1"
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-40 md:w-52 p-2 shadow">
         <li><NavLink to="/">Home</NavLink></li>
       <li><NavLink to="/plants">Plants</NavLink></li>
       <li><NavLink to={`${user?"/profile":"/login"}`}>My Profile</NavLink></li>
       </ul>
     </div>
-    <figure className='w-20  rounded-2xl'><img src={logo} alt="" />
+    <figure className='hidden md:w-20 rounded-2xl md:block '><img src={logo} alt="" />
      
     </figure>
   </div>
@@ -43,26 +43,26 @@ const Navbar = () => {
     <ul className="menu menu-horizontal px-1">
       <li><NavLink to="/">Home</NavLink></li>
       <li><NavLink to="/plants">Plants</NavLink></li>
-      <li><NavLink to={`${user?"/profile":"/login"}`}>My Profile</NavLink></li>
+      <li><NavLink to={`${user?"/profile":"/profile/login"}`}>My Profile</NavLink></li>
     </ul>
   </div>
   <div className="navbar-end ">
     {
       user?<details className="dropdown">
   <summary className=" list-none cursor-pointer">
-    <figure className='mt-4 w-16 h-16'>
+    <figure className='mt-4 w-12 h-12 md:w-16 md:h-16'>
       <img className='rounded-full' src={`${user? user.photoURL:userPhoto}`} alt=""
         referrerPolicy='no-referrer'
       /></figure></summary>
-  <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-36 p-1 shadow-sm">
+  <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-20 md:w-36 p-1 shadow-sm">
     <li><a>{user.displayName}</a></li>
-    <Link><li><a onClick={handleSignOut}>Sign Out</a></li></Link>
+    <Link className='hover:border-b-2 hover:border-b-blue-600'><li><a onClick={handleSignOut}>Log out</a></li></Link>
     
   </ul>
 </details>:
       <div className='flex gap-4'>
-        <Link to="/login">Sign In</Link>
-         <Link to="/register">Sign Up</Link>
+        <Link to="/login" className='hover:border-b-2 hover:border-b-blue-600'>Login</Link>
+         <Link to="/register" className='hover:border-b-2 hover:border-b-blue-600'>Register</Link>
       </div>
     }
     

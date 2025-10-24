@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import usePlants from '../Hooks/usePlants';
-import star from '../assets/fi_1828884.png'
 import { FaCartArrowDown, FaDollarSign, FaStar } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 
@@ -45,7 +44,7 @@ const PlantCardDetails = () => {
             <span className="text-purple-700 font-bold">{providerName}</span>
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mt-4 md:mt-6">
-           <div>
+           <div className='flex flex-col justify-center items-center md:flex-none'>
               <p className='text-4xl font-semibold'>Price</p> <br />
               <div className='flex items-center'>
                 <FaDollarSign  className='text-2xl'/>
@@ -53,14 +52,14 @@ const PlantCardDetails = () => {
               </div>
                
            </div>
-           <div>
+           <div className='flex flex-col justify-center items-center md:flex-none'>
             <p className='text-4xl font-semibold'>Ratings</p> <br />
               <div className='flex items-center gap-4'>
                 <FaStar   className='text-3xl text-yellow-400'/>
                <p className='text-2xl font-bold'>{rating}</p> 
               </div>
            </div>
-           <div>
+           <div className='flex flex-col justify-center items-center md:flex-none'>
               <p className='text-4xl font-semibold'>Available Stock</p> <br />
               <div className='flex items-center gap-4'>
                 <FaCartArrowDown  className='text-3xl text-gray-500'/>
@@ -80,40 +79,37 @@ const PlantCardDetails = () => {
       <br />
 
       <div>
-        <h1 className='text-2xl font-bold text-center mt-32'>Book Consultation</h1>
-        <div className="hero">
-      <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className=""></div>
-        <div className="card text-center  w-3xl  shadow-2xl">
-          <div className="card-body">
-            <form onSubmit={handleConsultation} className='text-center flex justify-center'>
-              <fieldset className="fieldset text-center">
-                <h1 className="text-3xl font-bold"></h1>
-                <label className="label">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  className="input w-2xl"
-                  placeholder="Email"
-                  required
-                />
-                <label className="label">Password</label>
-                <input
-                  name="password"
-                  type="password"
-                  className="input w-2xl"
-                  placeholder="Password"
-                  required
-                />
-                <button className="btn bg-green-700 text-white mt-4">Book Now</button>
-              </fieldset>
-            </form>
-            
-          </div>
+    <h1 className='text-2xl md:text-3xl font-bold text-center mt-16 md:mt-32 mb-8'>Book Consultation</h1>
+    <div className="hero px-4">
+        <div className="hero-content flex-col lg:flex-row-reverse w-full max-w-6xl">
+            <div className="card w-full max-w-md lg:max-w-2xl shadow-2xl bg-base-100">
+                <div className="card-body p-6 md:p-8">
+                    <form onSubmit={handleConsultation}>
+                        <fieldset className="fieldset space-y-4 w-full">
+                            <label className="label">Your Name</label>
+                            <input
+                                type="text"
+                                name="name"
+                                className="input input-bordered w-full"
+                                placeholder="Your Name"
+                                required
+                            />
+                            <label className="label">Email</label>
+                            <input
+                                type="email"
+                                name="email"
+                                className="input input-bordered w-full"
+                                placeholder="Email"
+                                required
+                            />
+                            <button className="btn bg-green-700 text-white mt-4 w-full">Book Now</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-      </div>
+</div>
       <br /><br />
     </div>
     );
