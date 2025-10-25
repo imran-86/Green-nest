@@ -23,7 +23,7 @@ const router = createBrowserRouter([
             
             {
                 path:'/profile',
-                Component:Profiles
+                element:<PrivateRoute><Profiles></Profiles></PrivateRoute>
             },
             {
                 path:"/login",

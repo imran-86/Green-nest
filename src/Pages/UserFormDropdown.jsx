@@ -3,14 +3,13 @@ import { AuthContext } from '../Context/AuthContext/AuthContext';
 import { toast } from 'react-toastify';
 
 const UserFormDropdown = () => {
-  const {updateUser,setUser} = use(AuthContext);
+  const {updateUser,setUser,setLoading} = use(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
   const handleSubmit = (e) => {
-    e.preventDefault();
-    toast.success("Successfully Updated Your Profile")
+   
     
     const name = e.target.name.value;
     const photoURL =e.target.photo.value;
@@ -30,6 +29,9 @@ const UserFormDropdown = () => {
                 ...prevUser,
                 ...newData
             }));
+             e.preventDefault();
+             toast.success("Successfully Updated Your Profile")
+             setLoading(false)
             setIsOpen(false);
         }).catch((err) => {
             console.log('Update error:', err);

@@ -6,19 +6,12 @@ import LoadingSpinner from '../LoadingSpinner';
 
 const PrivateRoute = ({children}) => {
      const {user,loading} = useContext(AuthContext)
-   //   console.log(user);
     const location = useLocation();
-
-    // console.log(location);
-   //  const {loadingPlants} = usePlants()
-   // console.log(loading);
    
      if(loading){
         return <LoadingSpinner></LoadingSpinner>
      }
-   //   if(loadingPlants){
-   //    return <LoadingSpinner></LoadingSpinner>
-   //   }
+ 
      if(user){
         return children;
      }

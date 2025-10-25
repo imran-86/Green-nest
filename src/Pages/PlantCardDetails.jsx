@@ -9,17 +9,12 @@ import LoadingSpinner from './LoadingSpinner';
 const PlantCardDetails = () => {
     const {id} = useParams();
     const {plants} = usePlants();
-    // console.log(plants);
     const details = plants ? plants.find((plant) => String(plant.plantId) === id) : undefined;
-    // console.log(details);
     
     if(!details){
         console.log("not find");
         return <LoadingSpinner></LoadingSpinner>
     }
-    // if(loading){
-    //   return <LoadingSpinner></LoadingSpinner>
-    // }
     const {
         plantName,
        price,
