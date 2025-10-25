@@ -33,8 +33,7 @@ const Navbar = () => {
         <li><NavLink to="/">Home</NavLink></li>
       <li><NavLink to="/plants">Plants</NavLink></li>
       <li><NavLink to="/profile">My Profile</NavLink></li>
-      <li><Link to="/login" className='hover:border-b-2 hover:border-b-blue-600'>Login</Link></li>
-       <li><Link to="/register" className='hover:border-b-2 hover:border-b-blue-600'>Register</Link></li>
+      
       
       </ul>
     </div>
@@ -50,7 +49,8 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end ">
-    {
+    
+     {
       user?<details className="dropdown">
   <summary className=" list-none cursor-pointer">
     <figure className='mr-8 md:pr-0 mt-4 w-12 h-12 md:w-16 md:h-16'>
@@ -63,7 +63,7 @@ const Navbar = () => {
     
   </ul>
 </details>:
-      <div className='hidden lg:flex gap-4'>
+      <div className='flex gap-4'>
         <Link to="/login" className='hover:border-b-2 hover:border-b-blue-600'>Login</Link>
          <Link to="/register" className='hover:border-b-2 hover:border-b-blue-600'>Register</Link>
       </div>
