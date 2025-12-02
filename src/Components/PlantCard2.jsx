@@ -19,7 +19,7 @@ const PlantCard2 = ({plant}) => {
         <div>
             <div
        className="cursor-pointer card bg-base-100 hover:scale-102 transition ease-in-out shadow-sm p-4">
-        <figure className="h-48 overflow-hidden">
+        <figure className="h-38 overflow-hidden">
           <img className="w-full object-cover" src={image} alt="App" />
         </figure>
         <div className="card-body">

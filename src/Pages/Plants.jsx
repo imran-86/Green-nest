@@ -7,6 +7,8 @@ import LoadingSpinner from './LoadingSpinner';
 const Plants = () => {
     const {plants} = usePlants()
     // const indoorPlants = plants;
+    console.log(plants);
+    
     const {loadingPlants} = usePlants()
      if(loadingPlants){
         return <LoadingSpinner></LoadingSpinner>
@@ -14,7 +16,7 @@ const Plants = () => {
     return (
         <div>
             <h1 className='font-semibold text-center text-3xl md:text-5xl my-10'>Indoor Plants</h1><br />
-        <div className='w-11/12 mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 mb-20'>
+        <div className='w-10/12 mx-auto grid grid-cols-1 md:grid-cols-4 gap-5 mb-20'>
 
             {
                 plants.map((plant)=><PlantCard2 key={plant.plantId} 

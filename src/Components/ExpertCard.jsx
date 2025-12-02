@@ -5,13 +5,13 @@ const ExpertCard = ({ expert }) => {
     const { name, specialization, experience, image, bio, plantsCount } = expert;
 
     return (
-        <div className="bg-white p-10 rounded-xl shadow-lg overflow-hidden hover:shadow-xl ">
+        <div className="bg-white p-5 rounded-xl shadow-lg overflow-hidden hover:shadow-xl ">
            
             <div className="relative">
                 <img 
                     src={image} 
                     alt={name}
-                    className="w-full h-64 object-cover"
+                    className="w-full h-40 object-cover"
                 />
                 
                 <div className="absolute top-4 right-4">

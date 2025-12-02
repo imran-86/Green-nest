@@ -11,7 +11,7 @@ import FeedbackList from '../Components/FeedbackList';
 
 const Home = () => {
     const {plants,loadingPlants} = usePlants()
-    const firstFourPlants = plants?.slice(0, 4) || [];
+    const firstEightPlants = plants?.slice(0, 8) || [];
     // const {loading} = use(AuthContext)
     // console.log(loading);
     
@@ -24,21 +24,21 @@ const Home = () => {
     
     return (
         <div>
-            <div className='w-9/12 mx-auto my-20'>
+            <div className='w-10/12 mx-auto mt-10'>
              <Hero></Hero>
             </div>
-        <h1 className='font-semibold text-center text-5xl my-10'>Indoor Plants</h1><br />
-        <div className='w-9/12 mx-auto grid grid-cols-1 md:grid-cols-2 gap-5'>
+        <h1 className='my-20 font-semibold text-center text-5xl'>Indoor Plants</h1><br />
+        <div className='w-10/12 mx-auto grid grid-cols-1 md:grid-cols-4 gap-5'>
 
             {
-                firstFourPlants.map((plant)=><PlantCard key={plant.plantId} 
+                firstEightPlants.map((plant)=><PlantCard key={plant.plantId} 
                 plant={plant}
                 ></PlantCard>)
             }
            
         </div>
-         <Link to="/plants" className='mt-10 bg-green-600 text-white font-bold rounded-4xl block text-center mx-auto p-3 border w-fit'>
-                See more . . .
+         <Link to="/plants" className='btn btn-active btn-success mt-10  font-bold  block text-center mx-auto p-3 border w-fit'>
+                See more
         </Link>
 
         <div>

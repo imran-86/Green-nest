@@ -29,7 +29,7 @@ const Hero = () => {
     ];
 
     return (
-        <section className="relative h-screen">
+        <section className="relative h-96 ">
             <Swiper
                 modules={[Autoplay]}
                 effect="fade"
@@ -44,7 +44,7 @@ const Hero = () => {
                 {slides.map((slide) => (
                     <SwiperSlide key={slide.id}>
                         <div 
-                            className="relative h-full w-full bg-cover bg-center"
+                            className="relative  h-full w-full bg-cover bg-center"
                             style={{ backgroundImage: `url(${slide.image})` }}
                         >
                            <div className="absolute inset-0  bg-opacity-20"></div>

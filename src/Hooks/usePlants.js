@@ -9,6 +9,8 @@ const usePlants = () =>{
         setError(null);
         axios('../plants.json')
         .then((data) =>{
+            console.log(data.data);
+            
             setPlants(data.data);
         })
         .catch((error)=>{

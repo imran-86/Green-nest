@@ -3,6 +3,17 @@ import React, { use, useState } from 'react';
 import ExpertCard from './ExpertCard';
 import { AuthContext } from '../Context/AuthContext/AuthContext';
 import { toast } from 'react-toastify';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+
+
+
+// import required modules
+import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
 
 const Experts = () => {
     const {user} = use(AuthContext);
@@ -66,6 +77,7 @@ const Experts = () => {
 
     return (
         <section className="py-16 bg-gray-50">
+       
             <div className="container mx-auto px-4">
                 
                 <div className="text-center mb-12">
@@ -76,13 +88,42 @@ const Experts = () => {
                         Get professional advice from our team of plant care specialists with years of experience
                     </p>
                 </div>
-
-               
-                <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-                    {experts.map(expert => (
-                        <ExpertCard key={expert.id} expert={expert} />
+                
+                 <Swiper
+            loop={true}
+            autoplay={{
+                delay:1500,
+                disableOnInteraction:false
+            }}
+        effect={'coverflow'}
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView={3}
+        coverflowEffect={{
+          rotate: 50,
+          stretch: '50%',
+          depth: 200,
+          modifier: 1,
+          slideShadows: true,
+          scale: 0.75
+        }}
+        pagination={true}
+        modules={[EffectCoverflow, 
+            Autoplay,
+            Pagination]}
+        className="mySwiper"
+      >
+         {experts.map(expert => (
+                <SwiperSlide>
+                <ExpertCard key={expert.id} expert={expert} />
+                </SwiperSlide>
+                        
                     ))}
-                </div>
+      </Swiper>
+               
+                {/* <div className="w-10/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                   
+                </div> */}
 
                 
                 <div className="text-center mt-12">
@@ -97,14 +138,14 @@ const Experts = () => {
                  
                     <button 
                     onClick={()=>setShowConsultation(!showConsultation)}
-                    className="bg-green-500 cursor-pointer hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                    className="btn  btn-success cursor-pointer hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
                        <span className='animate-pulse inline-block'> Book a Consultation</span>
                     </button>
                     
                   
                     <button 
                         onClick={() => setShowAdvice(!showAdvice)}
-                        className="bg-blue-500 hover:bg-blue-600 cursor-pointer text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                        className="btn bg-blue-500 hover:bg-blue-600 cursor-pointer text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
                         {showAdvice ? 'Hide Plant Care Advice' : <span className='inline-block animate-bounce'>Let's see Our Plant Care Advice</span>}
                     </button>
@@ -112,11 +153,11 @@ const Experts = () => {
                     </div>
                  {showAdvice ? (
     user ? (
-        <div className=" w-11/12 mx-auto mt-8 p-6 bg-green-50 rounded-xl border border-green-200">
+        <div className=" w-10/12 mx-auto mt-8 p-6 bg-green-50 rounded-xl border border-green-200">
             <h4 className="text-xl font-bold text-green-800 mb-4 ">
                 🌿 Expert Plant Care Tips
             </h4>
-            <div className="space-y-3 text-left">
+            <div className="space-y-8 text-left">
                 {plantCareAdvice.map((advice, index) => (
                     <div key={index} className="flex items-start space-x-3">
                         <span className="text-green-500 mt-1">•</span>
@@ -133,7 +174,7 @@ const Experts = () => {
                           {showConsultation ? (
     user ? (
         <div className="min-h-screen py-8">
-    <h1 className='text-2xl md:text-3xl font-bold text-center mt-16 md:mt-32 mb-8'>Book Consultation</h1>
+    <h1 className='text-2xl md:text-3xl font-bold text-center mt-8 md:mt-8 mb-8'>Book Consultation</h1>
     <div className="hero">
         <div className="hero-content flex-col lg:flex-row-reverse w-full max-w-6xl">
             <div className="card w-full max-w-md lg:max-w-2xl shadow-2xl bg-base-100">
