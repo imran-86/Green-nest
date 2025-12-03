@@ -1,15 +1,29 @@
 import React from 'react';
-
+import logo from '../assets/LogoGreenNest.png'
 const Footer = () => {
     return (
-        <footer className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10">
-  <nav className="grid grid-flow-col gap-4">
-    <a className="link link-hover">About us</a>
+        <footer className="flex justify-around bg-white  footer sm:footer-horizontal  text-base-content p-10">
+  
+  <nav>
+    <figure className=' w-14 md:w-20 rounded-2xl '><img className='' src={logo} alt="" /></figure>
+    <p className='text-gray-600'>Copyright © {new Date().getFullYear()} - All right reserved by <br /> GreeNest Industries Ltd</p>
+  </nav>
+  <nav>
+    <h6 className="footer-title">Services</h6>
+    <a className="link link-hover">Branding</a>
+    <a className="link link-hover">Design</a>
+    <a className="link link-hover">Marketing</a>
+    <a className="link link-hover">Advertisement</a>
+  </nav>
+  <nav>
+    <h6 className="footer-title">Company</h6>
+    <a href='/about' className="link link-hover">About us</a>
     <a className="link link-hover">Contact</a>
     <a className="link link-hover">Jobs</a>
     <a className="link link-hover">Press kit</a>
   </nav>
   <nav>
+    <h6 className="footer-title">Social</h6>
     <div className="grid grid-flow-col gap-4">
       <a>
         <svg
@@ -46,9 +60,6 @@ const Footer = () => {
       </a>
     </div>
   </nav>
-  <aside>
-    <p>Copyright © {new Date().getFullYear()} - All right reserved by Green Nest Industries Ltd</p>
-  </aside>
 </footer>
     );
 };

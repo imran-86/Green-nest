@@ -9,6 +9,8 @@ import Login from "../Pages/Login";
 import PlantCardDetails from "../Pages/PlantCardDetails";
 import PrivateRoute from "../Pages/PrivateRoute/PrivateRoute";
 import ForgotPassword from "../Components/ForgotPassword";
+import PlantCareAdvice from "../Components/PlantCareAdvice";
+import AboutUs from "../Components/AboutUs";
 
 
 const router = createBrowserRouter([
@@ -47,8 +49,16 @@ const router = createBrowserRouter([
                Component:Plants
             },
             {
+               path: '/how-to-care',
+               Component: PlantCareAdvice
+            },
+            {
+               path: '/about',
+               Component: AboutUs
+            },
+            {
                 path:"/plant/:id",
-                element: <PrivateRoute><PlantCardDetails></PlantCardDetails></PrivateRoute>
+                element: <PlantCardDetails></PlantCardDetails>
             },
             {
                 path:"/forgot-password",

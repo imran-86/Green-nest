@@ -76,15 +76,15 @@ const Experts = () => {
     ];
 
     return (
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 ">
        
             <div className="container mx-auto px-4">
                 
-                <div className="text-center mb-12">
+                <div className="text-center mt-10">
                     <h2 className="text-4xl font-bold text-gray-800 mb-4">
                         Meet Our Green Experts
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                    <p className="mb-5 text-xl text-gray-600 max-w-2xl mx-auto">
                         Get professional advice from our team of plant care specialists with years of experience
                     </p>
                 </div>
@@ -127,7 +127,7 @@ const Experts = () => {
 
                 
                 <div className="text-center mt-12">
-                    <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 max-w-2xl mx-auto">
+                    <div className=" rounded-2xl shadow-sm border border-gray-200 p-8 max-w-2xl mx-auto">
                         <h3 className="text-2xl font-bold text-gray-800 mb-4">
                             Need Personalized Plant Care Advice?
                         </h3>

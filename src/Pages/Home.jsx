@@ -27,8 +27,13 @@ const Home = () => {
             <div className='w-10/12 mx-auto mt-10'>
              <Hero></Hero>
             </div>
-        <h1 className='my-20 font-semibold text-center text-5xl'>Indoor Plants</h1><br />
-        <div className='w-10/12 mx-auto grid grid-cols-1 md:grid-cols-4 gap-5'>
+         <div className='mt-10'>
+            <h1 className=' font-bold text-center text-4xl '>Green Living</h1>
+        <p className="mt-5 text-lg text-center text-gray-600">
+  Curated indoor plants for every home. Easy care, air-purifying, and beautifully transformative.
+</p>
+         </div>
+        <div className='mt-10 w-10/12 mx-auto grid grid-cols-1 md:grid-cols-4 gap-5'>
 
             {
                 firstEightPlants.map((plant)=><PlantCard key={plant.plantId} 

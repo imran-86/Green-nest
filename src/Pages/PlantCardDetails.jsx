@@ -33,7 +33,7 @@ const PlantCardDetails = () => {
     }
     
     return (
-        <div className="max-w-11/12 mx-auto w-full pt-4 md:pt-8 lg:pt-16 px-4 sm:px-6">
+        <div className="max-w-10/12 mx-auto pt-4 md:pt-8 lg:pt-16  sm:px-6">
       <div className="flex flex-col lg:flex-row gap-6 md:gap-8 border-b-2 border-gray-400 pb-8">
         <figure className="flex justify-center lg:justify-start">
           <img className="rounded-2xl md:rounded-4xl w-full max-w-xs sm:max-w-sm md:max-w-md h-auto" src={image} alt="App" />
@@ -61,7 +61,7 @@ const PlantCardDetails = () => {
               </div>
            </div>
            <div className='flex flex-col justify-center items-center md:flex-none'>
-              <p className='text-4xl font-semibold'>Available Stock</p> <br />
+              <p className='text-4xl font-semibold'>Available </p> <br />
               <div className='flex items-center gap-4'>
                 <FaCartArrowDown  className='text-3xl text-gray-500'/>
                <p className='text-2xl font-bold'>{availableStock}</p> 

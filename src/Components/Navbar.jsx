@@ -32,7 +32,11 @@ const Navbar = () => {
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-40 md:w-52 p-2 shadow">
         <li><NavLink to="/">Home</NavLink></li>
       <li><NavLink to="/plants">Plants</NavLink></li>
-      <li><NavLink to="/profile">My Profile</NavLink></li>
+      <li><NavLink to="/how-to-care">How To Care</NavLink></li>
+      <li><NavLink to="/about">About</NavLink></li>
+       { 
+        user &&  <li><NavLink to="/profile">My Profile</NavLink></li>
+      }
       
       
       </ul>
@@ -45,7 +49,12 @@ const Navbar = () => {
     <ul className="menu menu-horizontal px-1">
       <li><NavLink to="/">Home</NavLink></li>
       <li><NavLink to="/plants">Plants</NavLink></li>
-      <li><NavLink to="/profile">My Profile</NavLink></li>
+     
+      <li><NavLink to="/how-to-care">How To Care</NavLink></li>
+      <li><NavLink to="/about">About</NavLink></li>
+      { 
+        user &&  <li><NavLink to="/profile">My Profile</NavLink></li>
+      }
     </ul>
   </div>
   <div className="navbar-end ">
@@ -53,8 +62,8 @@ const Navbar = () => {
      {
       user?<details className="dropdown">
   <summary className=" list-none cursor-pointer">
-    <figure className='mr-8 md:pr-0 mt-4 w-12 h-12 md:w-16 md:h-16'>
-      <img className=' rounded-full' src={`${user? user.photoURL:userPhoto}`} alt=""
+    <figure className='mr-8  mt-4 w-12 h-12 md:w-12 md:h-12 '>
+      <img className='md:ml-7 rounded-full' src={`${user? user.photoURL:userPhoto}`} alt=""
         referrerPolicy='no-referrer'
       /></figure></summary>
   <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-20 md:w-36 p-1 shadow-sm">

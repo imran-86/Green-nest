@@ -1,4 +1,5 @@
 import React from 'react';
+import Marquee from "react-fast-marquee";
 
 const FeedbackList = () => {
  
@@ -18,7 +19,7 @@ const FeedbackList = () => {
     {
       id: 3,
       name: "Emily Davis",
-      feedback:  "Amazing customer service! They helped me choose the perfect plants for my low-light apartment.",
+      feedback: "Amazing customer service! They helped me choose the perfect plants for my low-light apartment.",
       rating: 5
     },
     {
@@ -26,10 +27,21 @@ const FeedbackList = () => {
       name: "Robert Wilson",
       feedback: "The expert advice saved my dying fiddle leaf fig! Will definitely shop here again.",
       rating: 3
+    },
+    {
+      id: 5,
+      name: "Lisa Martinez",
+      feedback: "Beautiful plants, healthy and well-packaged. My indoor garden looks amazing now!",
+      rating: 5
+    },
+    {
+      id: 6,
+      name: "David Thompson",
+      feedback: "Great variety of plants. The delivery was faster than expected. Very satisfied!",
+      rating: 4
     }
   ];
 
- 
   const renderStars = (rating) => {
     return (
       <div className="flex space-x-1">
@@ -48,78 +60,64 @@ const FeedbackList = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
-      <div className="text-center mb-8">
+    <div className="w-10/12 mx-auto p-6">
+      <div className="text-center mt-10">
         <h2 className="text-3xl font-bold text-gray-800 mb-2">Customer Feedback</h2>
-        <p className="text-gray-600">What our customers are saying about us</p>
+        <p className="my-5 text-gray-600">What our customers are saying about us</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {feedbackData.map((feedback) => (
-          <div
-            key={feedback.id}
-            className="bg-white rounded-xl shadow-md border border-gray-100 p-6 hover:shadow-lg transition-shadow duration-300"
-          >
-            <div className="flex items-center justify-between mb-4">
-              {renderStars(feedback.rating)}
-              <span className="text-sm text-gray-500 font-medium">
-                {feedback.rating}/5
-              </span>
-            </div>
-
-            <p className="text-gray-700 mb-4 leading-relaxed">
-              "{feedback.feedback}"
-            </p>
-            <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-              <div className="flex items-center">
-                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                  {feedback.name.split(' ').map(n => n[0]).join('')}
+     
+      <div className="mb-8">
+        <Marquee
+          gradient={true}
+          gradientColor="white"
+          gradientWidth={100}
+          speed={50}
+          pauseOnHover={true}
+        >
+          {feedbackData.map((feedback) => (
+            <div 
+              key={feedback.id}
+              className="mx-4 w-80 flex-shrink-0" 
+            >
+              <div className="bg-white rounded-xl shadow-md border border-gray-100 p-6 hover:shadow-lg transition-shadow duration-300 h-full">
+                <div className="flex items-center justify-between mb-4">
+                  {renderStars(feedback.rating)}
+                  <span className="text-sm text-gray-500 font-medium">
+                    {feedback.rating}/5
+                  </span>
                 </div>
-                <div className="ml-3">
-                  <h3 className="font-semibold text-gray-800">{feedback.name}</h3>
-                  <p className="text-sm text-gray-500">Customer</p>
+
+                <p className="text-gray-700 mb-4 leading-relaxed h-24 overflow-hidden">
+                  "{feedback.feedback}"
+                </p>
+                
+                <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                  <div className="flex items-center">
+                    <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                      {feedback.name.split(' ').map(n => n[0]).join('')}
+                    </div>
+                    <div className="ml-3">
+                      <h3 className="font-semibold text-gray-800">{feedback.name}</h3>
+                      <p className="text-sm text-gray-500">Customer</p>
+                    </div>
+                  </div>
+                  <div className={`px-3 py-1 rounded-full text-sm font-medium ${
+                    feedback.rating >= 4 ? 'bg-green-100 text-green-800' :
+                    feedback.rating >= 3 ? 'bg-yellow-100 text-yellow-800' :
+                    'bg-red-100 text-red-800'
+                  }`}>
+                    {feedback.rating >= 4 ? 'Excellent' : 
+                     feedback.rating >= 3 ? 'Good' : 'Average'}
+                  </div>
                 </div>
               </div>
-              <div className={`px-3 py-1 rounded-full text-sm font-medium ${
-                feedback.rating >= 4 ? 'bg-green-100 text-green-800' :
-                feedback.rating >= 3 ? 'bg-yellow-100 text-yellow-800' :
-                'bg-red-100 text-red-800'
-              }`}>
-                {feedback.rating >= 4 ? 'Excellent' : 
-                 feedback.rating >= 3 ? 'Good' : 'Average'}
-              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </Marquee>
       </div>
 
-      
-      <div className="mt-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-          <div>
-            <div className="text-2xl font-bold text-gray-800">{feedbackData.length}</div>
-            <div className="text-sm text-gray-600">Total Reviews</div>
-          </div>
-          <div>
-            <div className="text-2xl font-bold text-gray-800">
-              {(feedbackData.reduce((sum, item) => sum + item.rating, 0) / feedbackData.length).toFixed(1)}
-            </div>
-            <div className="text-sm text-gray-600">Average Rating</div>
-          </div>
-          <div>
-            <div className="text-2xl font-bold text-gray-800">
-              {feedbackData.filter(item => item.rating >= 4).length}
-            </div>
-            <div className="text-sm text-gray-600">Positive Reviews</div>
-          </div>
-          <div>
-            <div className="text-2xl font-bold text-gray-800">
-              {feedbackData.filter(item => item.rating <= 3).length}
-            </div>
-            <div className="text-sm text-gray-600">Needs Improvement</div>
-          </div>
-        </div>
-      </div>
+    
     </div>
   );
 };
