@@ -81,7 +81,7 @@ const Experts = () => {
             <div className="container mx-auto px-4">
                 
                 <div className="text-center mt-10">
-                    <h2 className="text-4xl font-bold text-gray-800 mb-4">
+                    <h2 className="text-4xl font-bold text-gray-900 mb-4">
                         Meet Our Green Experts
                     </h2>
                     <p className="mb-5 text-xl text-gray-600 max-w-2xl mx-auto">

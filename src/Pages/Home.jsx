@@ -28,7 +28,7 @@ const Home = () => {
              <Hero></Hero>
             </div>
          <div className='mt-10'>
-            <h1 className=' font-bold text-center text-4xl '>Green Living</h1>
+            <h1 className=' font-bold text-center text-4xl text-gray-900'>Green Living</h1>
         <p className="mt-5 text-lg text-center text-gray-600">
   Curated indoor plants for every home. Easy care, air-purifying, and beautifully transformative.
 </p>

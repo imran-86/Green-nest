@@ -42,7 +42,7 @@ const router = createBrowserRouter([
             
             {
                 path:"/:id",
-                element:<PrivateRoute><PlantCardDetails></PlantCardDetails></PrivateRoute>
+                element:<PlantCardDetails></PlantCardDetails>
             },
             {
                path:'/plants',

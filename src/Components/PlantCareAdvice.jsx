@@ -1,7 +1,13 @@
 import React from 'react';
 import { Sun, Droplets, Thermometer, Sprout, Shield, AlertCircle, CheckCircle, Cloud, Wind } from 'lucide-react';
+import usePlants from '../Hooks/usePlants';
+import LoadingSpinner from '../Pages/LoadingSpinner';
 
 const PlantCareAdvice = () => {
+     const {loadingPlants} = usePlants()
+     if(loadingPlants){
+        return <LoadingSpinner></LoadingSpinner>
+     }
     const careTips = [
         {
             id: 1,
@@ -263,22 +269,7 @@ const PlantCareAdvice = () => {
                     </div>
                 </div>
 
-                {/* CTA Section */}
-                <div className="text-center">
-                    <div className="inline-block bg-gradient-to-r from-green-500 to-blue-500 rounded-2xl p-1">
-                        <div className="bg-white rounded-xl p-8">
-                            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                                Need Personalized Advice?
-                            </h3>
-                            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                                Our plant experts are here to help with specific care questions about your plants.
-                            </p>
-                            <button className="bg-gradient-to-r from-green-500 to-blue-500 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
-                                Contact Plant Expert
-                            </button>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
         </div>
     );
